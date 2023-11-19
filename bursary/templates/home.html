@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Home{% endblock %}
+
+
+{% block content %}
+{% include 'navbar.html' %}
+     <style>
+        /* Apply background image to the body element */
+        body {
+            background-image: url("{% static 'images/LIBRARY.jpg' %}");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            margin: 0; /* Reset body margin to 0 */
+            padding: 0; /* Reset body padding to 0 */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+    </style>
+    <!-- Hero Section -->
+    <!-- Hero Section -->
+<section class="hero">
+    <div class="hero-images">
+        <img class="hero-image image1" src="{% static 'images/CHILDREN2.jpg' %}" alt="Hero Image 1">
+        <img class="hero-image image2" src="{% static 'images/CHILDREN.jpg' %}" alt="Hero Image 2">
+        <img class="hero-image image3" src="{% static 'images/LIBRARY.jpg' %}" alt="Hero Image 3">
+    </div>
+    <div class="hero-content">
+        <h1>Empowering Futures Through Education</h1>
+    </div>
+</section>
+
+
+    <!-- Bursary Programs Styles -->
+    <section id="programs" class="programs-section">
+        <div class="container">
+<h2>Bursary Programs</h2>
+            <p>Welcome to the Constituency Development Fund (CDF) Bursaries Program — a dedicated initiative committed to enhancing education accessibility and empowering students across Kenyan schools.
+            <div class="bursary-images">
+                <div class="bursary-image" onmouseover="animateImage(this)">
+                    <img src="{% static 'images/CHILDREN3.jpg' %}" alt="Student 1">
+                </div>
+                <div class="bursary-image" onmouseover="animateImage(this)">
+                    <img src="{% static 'images/CHILDREN2.jpg' %}" alt="Student 2">
+                </div>
+                <div class="bursary-image" onmouseover="animateImage(this)">
+                    <img src="{% static 'images/CHILDREN.jpg' %}" alt="Student 3">
+                </div>
+            </div>
+
+            <p>Welcome to the Constituency Development Fund (CDF) Bursaries Program — a dedicated initiative committed to enhancing education accessibility and empowering students across Kenyan schools.
+
+        </div>
+    </section>
+     <section id="about" class="about-section">
+        <div class="container">
+            <h2>About CDF Bursaries</h2>
+            <p>Welcome to the Constituency Development Fund (CDF) Bursaries Program — a dedicated initiative committed to enhancing education accessibility and empowering students across Kenyan schools.
+        </div>
+    </section>
+
+
+    <!-- 3. About CDF Bursaries -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2>About CDF Bursaries</h2>
+            <p>Welcome to the Constituency Development Fund (CDF) Bursaries Program — a dedicated initiative committed to enhancing education accessibility and empowering students across Kenyan schools. Our mission is to foster academic excellence, reduce dropout rates, and create a brighter future for the youth.</p>
+
+            <h3>Key Objectives:</h3>
+            <ul>
+                <li>Promoting Education Access</li>
+                <li>Reducing Dropout Rates</li>
+                <li>Supporting Academic Excellence</li>
+            </ul>
+        </div>
+    </section>
+    <!-- Eligibility Criteria Section -->
+    <section id="eligibility" class="eligibility-section card-section">
+        <div class="card">
+            <h2>Eligibility Criteria</h2>
+            <p>To be eligible for the CDF Bursaries, students must meet certain criteria, including:</p>
+            <ul>
+                <li>Demonstrated financial need.</li>
+                <li>Satisfactory academic performance.</li>
+                <li>Commitment to their studies and community.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Application Process Section -->
+    <section id="application" class="application-section card-section">
+        <div class="card">
+            <h2>Application Process</h2>
+            <p>Applying for a CDF Bursary is easy! Follow our step-by-step guide to ensure a smooth application process. Don't forget to check the deadlines and gather the necessary documents.</p>
+            <a class="button" href="{% url 'home' %}">Application Guide</a>
+        </div>
+    </section>
+
+    <!-- News & Updates Section -->
+    <section id="news" class="news-section card-section">
+        <div class="card">
+            <h2>News & Updates</h2>
+            <p>Stay informed with the latest news and updates about the CDF Bursaries Program. From program enhancements to success stories and application deadlines, we keep you in the loop.</p>
+            <a class="button" href="{% url 'home' %}">View All News</a>
+        </div>
+    </section>
+
+    <!-- Contact Information Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>Have questions or need assistance? Reach out to us!</p>
+            <div class="contact-details">
+                <p>Email: info@cdfbursaries.org</p>
+                <p>Phone: +254 123 456 789</p>
+            </div>
+            <a class="button" href="{% url 'home' %}">Contact Form</a>
+        </div>
+    </section>
+
+
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}HOME{% endblock %}
+
+{% block content %}
+    {% include 'navbar.html' %}
+    <style>
+        /* Apply background image to the body element */
+        body {
+            background-image: url("{% static 'images/LIBRARY.jpg' %}");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            margin: 0; /* Reset body margin to 0 */
+            padding: 0; /* Reset body padding to 0 */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+    </style>
+    <div class="container">
+        <p class="intro-text">Hello bene</p>
+        <h1 class="main-heading">Compare Phone</h1>
+        <form method="post" action="" class="data-form">
+            {% csrf_token %}
+            <label for="phone" class="form-label">Enter Phone Number:</label>
+            <input type="text" name="phone" class="form-input" required>
+            <button type="submit" class="btn btn-submit">Submit</button>
+        </form>
+
+        {% if show_download_link %}
+            <p class="download-text">Download link:</p>
+            <a href="{{ download_path }}" download="{{ download_path }}" class="btn btn-download">Download</a>
+        {% endif %}
+    </div>
+{% endblock %}

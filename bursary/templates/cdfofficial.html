@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}HOME{% endblock %}
+
+
+{% block content %}
+    {% include 'navbar.html' %}
+    <style>
+        /* Apply background image to the body element */
+        body {
+            background-image: url("{% static 'images/LIBRARY.jpg' %}");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            margin: 0; /* Reset body margin to 0 */
+            padding: 0; /* Reset body padding to 0 */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+    </style>
+    <div class="container">
+        <h2 class="main-heading">Welcome to Your App</h2>
+
+        <form action="" method="POST" enctype="multipart/form-data" class="data-form">
+            {% csrf_token %}
+            {{ form }}
+
+            <input type="submit" class="btn btn-submit" value="Submit">
+        </form>
+
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th class="table-heading">Institution</th>
+                    <th class="table-heading">Beneficiary</th>
+                    <th class="table-heading">Phone</th>
+                    <th class="table-heading">Date Created</th>
+                    <th class="table-heading">Download</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for institution_obj in institutions %}
+                    <tr>
+                        <td class="table-cell">{{ institution_obj.school }}</td>
+                        <td class="table-cell">{{ institution_obj.student }}</td>
+                        <td class="table-cell">{{ institution_obj.phone }}</td>
+                        <td class="table-cell">{{ institution_obj.datecreated }}</td>
+                        <td class="table-cell">
+                            {% if institution_obj.show_download_link %}
+                                <a class="btn btn-download" href="{{ institution_obj.download_path }}" download="{{ institution_obj.download_path }}">Download</a>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Registration form{% endblock %}
+
+{% block content %}
+     <style>
+        /* Apply background image to the body element */
+        body {
+            background-image: url("{% static 'images/log.jpg' %}");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            margin: 0; /* Reset body margin to 0 */
+            padding: 0; /* Reset body padding to 0 */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+    </style>
+    <div class="container">
+        <h1 class="main-heading">HELLO THERE, PLEASE REGISTER</h1>
+
+        <form action="" method="POST" class="registration-form">
+            {% csrf_token %}
+
+            <div class="form-group">
+                {{ form.username.label_tag }}
+                {{ form.username }}
+            </div>
+
+            <div class="form-group">
+                {{ form.password1.label_tag }}
+                {{ form.password1 }}
+            </div>
+
+            <div class="form-group">
+                {{ form.password2.label_tag }}
+                {{ form.password2 }}
+            </div>
+
+            <div class="form-group">
+                {{ form1.Name.label_tag }}
+                {{ form1.Name }}
+            </div>
+
+            <input type="submit" value="Submit" class="btn btn-submit">
+        </form>
+
+        <h3 class="login-text">Already have an account? <a class="login-link" href="{% url 'login_user' %}">Login here</a>.</h3>
+    </div>
+{% endblock %}

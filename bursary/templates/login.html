@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Login{% endblock %}
+
+{% block content %}
+     <style>
+        /* Apply background image to the body element */
+        body {
+            background-image: url("{% static 'images/log.jpg' %}");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            margin: 0; /* Reset body margin to 0 */
+            padding: 0; /* Reset body padding to 0 */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+    </style>
+    <div class="container">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <p id="messages">{{ message }}</p>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+
+    <div class="container">
+        <h1 class="main-heading">Login</h1>
+
+        <form action="" method="POST" class="login-form">
+            {% csrf_token %}
+
+            <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control" name="username" aria-describedby="emailHelp" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" name="password" required>
+            </div>
+
+            <input type="submit" value="Submit" class="btn btn-secondary">
+        </form>
+
+        <h3 class="register-text">If you don't have an account, sign up <a class="register-link" href="{% url 'register' %}">here</a>.</h3>
+    </div>
+{% endblock %}

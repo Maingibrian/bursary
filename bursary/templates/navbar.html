@@ -1,0 +1,33 @@
+<style>
+    .nav-logout{
+        font-size: 18px;
+        color: bisque;
+        margin-right: 20px;
+    }
+</style>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'home' %}">Home</a>
+      </li>
+      {% if request.user.is_staff %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'cdfofficial' %}">CDF OFFICIAL</a>
+          </li>
+      {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'eduinstitution' %}">Institution</a>
+          </li>
+      {% endif %}
+        <li class="nav-item">
+        <a class="nav-link" href="{% url 'beneficiary' %}">Beneficiary</a>
+      </li>
+    </ul>
+  </div>
+    <span><a class="nav-logout" href="{% url 'logout_user' %}">Logout</a></span>
+</nav>
